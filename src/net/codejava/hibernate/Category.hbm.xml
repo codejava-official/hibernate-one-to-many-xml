@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.codejava.hibernate">
+	<class name="Category" table="CATEGORY">
+		<id name="id" column="CATEGORY_ID">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="NAME" />
+
+		<set name="products" inverse="true" cascade="all">
+			<key column="CATEGORY_ID" not-null="true" />
+			<one-to-many class="Product"/>
+		</set>
+	</class>	
+</hibernate-mapping>        
